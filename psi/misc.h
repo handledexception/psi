@@ -1,14 +1,12 @@
 /*
- _______          _    _
-|__   __|  /\    | |  | |
-   | |    /  \   | |  | |  Psi - The Micro Testing Framework for C/C++
-   | |   / /\ \  | |  | |  Language: C
-   | |  / ____ \ | |__| |  https://github.com/jasmcaus/tau
-   |_| /_/    \_\ \____/
+    Psi - The Micro Testing Framework for C/C++
+    Language: C
+    https://github.com/handledexception/psi
 
-Licensed under the MIT License <http://opensource.org/licenses/MIT>
-SPDX-License-Identifier: MIT
-Copyright (c) 2021 Jason Dsouza <@jasmcaus>
+    Forked from the original project, Tau: https://github.com/jasmcaus/tau
+    Licensed under the MIT License <http://opensource.org/licenses/MIT>
+    SPDX-License-Identifier: MIT
+    Copyright (c) 2021 Jason Dsouza <@jasmcaus>
 */
 
 #ifndef TAU_MISCELLANEOUS_H
