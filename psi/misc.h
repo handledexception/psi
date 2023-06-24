@@ -1,7 +1,7 @@
 /*
  _______          _    _
 |__   __|  /\    | |  | |
-   | |    /  \   | |  | |  Tau - The Micro Testing Framework for C/C++
+   | |    /  \   | |  | |  Psi - The Micro Testing Framework for C/C++
    | |   / /\ \  | |  | |  Language: C
    | |  / ____ \ | |__| |  https://github.com/jasmcaus/tau
    |_| /_/    \_\ \____/

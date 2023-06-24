@@ -1,7 +1,7 @@
 /*
  _______           _    _
 |__   __|  /\    | |  | |
-   | |    /  \   | |  | |  Tau - The Micro Testing Framework for C/C++
+   | |    /  \   | |  | |  Psi - The Micro Testing Framework for C/C++
    | |   / /\ \  | |  | |  Language: C
    | |  / ____ \ | |__| |  https://github.com/jasmcaus/tau
    |_| /_/    \_\ \____/
@@ -13,8 +13,8 @@ Copyright (c) 2021 Jason Dsouza <http://github.com/jasmcaus>
 #ifndef TAU_H_
 #define TAU_H_
 
-#include <tau/types.h>
-#include <tau/misc.h>
+#include <psi/types.h>
+#include <psi/misc.h>
 
 TAU_DISABLE_DEBUG_WARNINGS
 
@@ -133,10 +133,10 @@ static const char* cmd_filter = TAU_NULL;
 
 /**
     This helps us determine whether a CHECK or a REQUIRE are being called from within (or outside)
-    a Test Suite. Tau supports both - so we need to handle this.
+    a Test Suite. Psi supports both - so we need to handle this.
 
     We could have somehow determined this from within a function, but this is a cleaner approach
-    (which is the Tau's aim).
+    (which is the Psi's aim).
 
     Inside the TEST() initializer, this is set to `true` (because we are inside a Test Suite), so the
     `CHECK`s and `REQUIRE`s will do their thing and return the appropriate result.
@@ -152,7 +152,7 @@ extern volatile int shouldAbortTest;
 
 /**
     This function is called from within a macro in the format {CHECK|REQUIRE)_*
-    If we are inside a test suite _and_ a check fails, we need to be able to signal to Tau to handle this
+    If we are inside a test suite _and_ a check fails, we need to be able to signal to Psi to handle this
     appropriately - fail the current test suite and carry on with the other checks (or move on to the next
     suite in the case of a REQUIRE)
 */
@@ -234,8 +234,8 @@ TAU_EXTERN tauTestStateStruct tauTestContext;
 #endif // _MSC_VER
 
 /**
-    Tau Timer
-    This method is useful in timing the execution of an Tau Test Suite
+    Psi Timer
+    This method is useful in timing the execution of an Psi Test Suite
     To use this, simply call this function before and after the particular code block you want to time,
     and their difference will give you the time (in seconds).
     NOTE: This method has been edited to return the time (in nanoseconds). Depending on how large this value
@@ -540,7 +540,7 @@ static inline int tauShouldDecomposeMacro(const char* const actual, const char* 
     // If we're here, this means that the Compiler does not support overloadable methods
     #define TAU_OVERLOAD_PRINTER(...)                                                              \
         tauPrintf("Error: Your compiler does not support overloadable methods.");                  \
-        tauPrintf("If you think this was an error, please file an issue on Tau's Github repo.")
+        tauPrintf("If you think this was an error, please file an issue on Psi's Github repo.")
 #endif // TAU_OVERLOADABLE
 
 #ifndef TAU_NO_TESTING
@@ -1204,7 +1204,8 @@ inline int tau_main(const int argc, const char* const * const argv) {
     tauColouredPrintf(TAU_COLOUR_BRIGHTGREEN_, "[  PASSED  ] %" TAU_PRIu64 " %s\n",
                             tauStatsTestsRan - tauStatsNumTestsFailed,
                             tauStatsTestsRan - tauStatsNumTestsFailed == 1 ? "suite" : "suites");
-    tauColouredPrintf(TAU_COLOUR_BRIGHTRED_, "[  FAILED  ] %" TAU_PRIu64 " %s\n",
+    tauColouredPrintf(tauStatsNumTestsFailed > 0 ? TAU_COLOUR_BRIGHTRED_ : TAU_COLOUR_DEFAULT_,
+                            "[  FAILED  ] %" TAU_PRIu64 " %s\n",
                             tauStatsNumTestsFailed,
                             tauStatsNumTestsFailed == 1 ? "suite" : "suites");
 
@@ -1229,6 +1230,7 @@ inline int tau_main(const int argc, const char* const * const argv) {
         for (tau_ull i = 0; i < tauStatsNumFailedTestSuites; i++) {
             tauColouredPrintf(TAU_COLOUR_BRIGHTRED_, "  [ FAILED ] %s\n",
                             tauTestContext.tests[tauStatsFailedTestSuites[i]].name);
+
         }
     } else if(tauStatsNumTestsFailed == 0 && tauStatsTotalTestSuites > 0) {
         const tau_u64 total_tests_passed = tauStatsTestsRan - tauStatsNumTestsFailed;
@@ -1238,7 +1240,7 @@ inline int tau_main(const int argc, const char* const * const argv) {
         printf("\n");
     } else {
         tauColouredPrintf(TAU_COLOUR_BRIGHTYELLOW_, "WARNING: ");
-        printf("No test suites were found. If you think this was an error, please file an issue on Tau's Github repo.");
+        printf("No test suites were found. If you think this was an error, please file an issue on Psi's Github repo.");
         printf("\n");
     }
 
@@ -1251,7 +1253,7 @@ inline int tau_main(const int argc, const char* const * const argv) {
 /**
     We need to declare these variables here because they're used in multiple translation units (if compiled
     as so).
-    For example, if test1.c(pp) #includes `tau/tau.h` and test2.c(pp) does the same, declaring the variables
+    For example, if test1.c(pp) #includes `psi/tau.h` and test2.c(pp) does the same, declaring the variables
     static will only make them exist in the first translation unit the compiler sees.
     We can get around this by compiling only one file (eg. main.c(pp)) and including the other source files
     using `#include`, but this would be counter-productive.
@@ -1276,7 +1278,7 @@ inline int tau_main(const int argc, const char* const * const argv) {
 
 // Define a main() function to call into tau.h and start executing tests.
 #define TAU_MAIN()                                                             \
-    /* Define the global struct that will hold the data we need to run Tau. */ \
+    /* Define the global struct that will hold the data we need to run Psi. */ \
     tauTestStateStruct tauTestContext = {0, 0, 0};                             \
     TAU_ONLY_GLOBALS()                                                         \
                                                                                \

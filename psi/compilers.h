@@ -1,7 +1,7 @@
 /*
  _______          _    _
 |__   __|  /\    | |  | |
-   | |    /  \   | |  | |  Tau - The Micro Testing Framework for C/C++
+   | |    /  \   | |  | |  Psi - The Micro Testing Framework for C/C++
    | |   / /\ \  | |  | |  Language: C
    | |  / ____ \ | |__| |  https://github.com/jasmcaus/tau
    |_| /_/    \_\ \____/
@@ -23,7 +23,7 @@ Copyright (c) 2021 Jason Dsouza <@jasmcaus>
 #elif defined(__GNUC__) && !defined(INTEL_COMPILER) && !defined(llvm)
     #define TAU_COMPILER_GCC 1
 #else
-    #error Unknown Compiler (Tau currently supports only MSVC, GCC and Clang)
+    #error Unknown Compiler (Psi currently supports only MSVC, GCC and Clang)
 #endif
 
 // Disable Compiler Warnings
