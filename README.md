@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Tau τ</h1>
+<h1>Psi Ψ</h1>
 
 [![Standard](https://img.shields.io/badge/C-11/14/17-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Standard](https://img.shields.io/badge/C%2B%2B-11/14/17/20-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
@@ -15,11 +15,10 @@ A Micro Unit Testing Framework for >C11/C++11 projects, with the promise of *alw
 code. This framework is a *much* simpler, *much* lighter and *much* faster alternative to heavier frameworks like
 Google Test, & Catch2, making it suitable for on-to-go testing (embedded developers will especially love us!).
 
-I initially wrote Tau to be a unit testing framework for C; however, initial results showed great promise of
-compiling with (and testing) C++ code. While Tau doesn't currently support mocking, or a way to test for exceptions
-in C++, its limitations are in fact its biggest strength - you get *negligible* overhead & fast compilation speeds
-for the sacrifice of a few constructs.
+This is a fork of the original project called Tau, by Jason Dsouza: [https://github.com/jasmcaus/tau](https://github.com/jasmcaus/tau)
 
+I forked Tau into this repo and named it Psi. The reason for this fork is becuase I was unhappy with the way that Tau reports zero test failures in red text in the end-of-test summary.
+See that discussion [here](https://github.com/jasmcaus/tau/pull/19).
 
 ## Features
 * *Ultra-light* (~1k lines of code)
