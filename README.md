@@ -19,6 +19,7 @@ This is a fork of the original project called Tau, by Jason Dsouza: [https://git
 
 I forked Tau into this repo and named it Psi. The reason for this fork is becuase I was unhappy with the way that Tau reports zero test failures in red text in the end-of-test summary.
 See that discussion [here](https://github.com/jasmcaus/tau/pull/19).
+Everything else in this fork is the same, and I aim to keep it up to date with changes from Tau.
 
 ## Features
 * *Ultra-light* (~1k lines of code)
