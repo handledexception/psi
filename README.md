@@ -17,9 +17,9 @@ Google Test, & Catch2, making it suitable for on-to-go testing (embedded develop
 
 This is a fork of the original project called Tau, by Jason Dsouza: [https://github.com/jasmcaus/tau](https://github.com/jasmcaus/tau)
 
-I forked Tau into this repo and named it Psi. The reason for this fork is becuase I was unhappy with the way that Tau reports zero test failures in red text in the end-of-test summary.
-See that discussion [here](https://github.com/jasmcaus/tau/pull/19).
-Everything else in this fork is the same, and I aim to keep it up to date with changes from Tau.
+The reason for this fork is because I wanted test runs with zero failures to not show red text in the test completion summary. See that discussion [here](https://github.com/jasmcaus/tau/pull/19).
+
+Everything else in this fork is functionally the same. I may pull relevant changes or fixes from Tau into this fork as needed.
 
 ## Features
 * *Ultra-light* (~1k lines of code)
