@@ -1,4 +1,4 @@
-#include "tau/tau.h"
+#include "psi/psi.h"
 
 TEST(c, CHECK_TF) {
     CHECK_FALSE(0);
@@ -184,26 +184,26 @@ TEST(c11, no_double_eval) {
 }
 
 TEST(c11, CHECK_BUF_EQ) {
-	tau_u8 buf[] = {1, 2, 3, 4, 5};
-	tau_u8 ref[] = {1, 2, 3, 4, 5};
+	psi_u8 buf[] = {1, 2, 3, 4, 5};
+	psi_u8 ref[] = {1, 2, 3, 4, 5};
 	CHECK_BUF_EQ(buf, ref, sizeof(ref));
 }
 
 TEST(c11, CHECK_BUF_NE) {
-	tau_u8 buf[] = {1, 2, 3, 4, 5};
-	tau_u8 ref[] = {10, 2, 3, 4, 5};
+	psi_u8 buf[] = {1, 2, 3, 4, 5};
+	psi_u8 ref[] = {10, 2, 3, 4, 5};
 	CHECK_BUF_NE(buf, ref, sizeof(ref));
 }
 
 TEST(c11, REQUIRE_BUF_EQ) {
-	tau_u8 buf[] = {1, 2, 3, 4, 5};
-	tau_u8 ref[] = {1, 2, 3, 4, 5};
+	psi_u8 buf[] = {1, 2, 3, 4, 5};
+	psi_u8 ref[] = {1, 2, 3, 4, 5};
 	REQUIRE_BUF_EQ(buf, ref, sizeof(ref));
 }
 
 TEST(c11, REQUIRE_BUF_NE) {
-	tau_u8 buf[] = {1, 2, 3, 4, 5};
-	tau_u8 ref[] = {10, 23, 3, 4, 5};
+	psi_u8 buf[] = {1, 2, 3, 4, 5};
+	psi_u8 ref[] = {10, 23, 3, 4, 5};
 	REQUIRE_BUF_NE(buf, ref, sizeof(ref));
 }
 
@@ -212,20 +212,20 @@ struct MyTestF {
 };
 
 TEST_F_SETUP(MyTestF) {
-    REQUIRE_EQ(0, tau->foo);
-    tau->foo = 42;
+    REQUIRE_EQ(0, psi->foo);
+    psi->foo = 42;
 }
 
 TEST_F_TEARDOWN(MyTestF) { 
-    REQUIRE_EQ(13, tau->foo); 
+    REQUIRE_EQ(13, psi->foo); 
 }
 
 TEST_F(MyTestF, c) {
-    REQUIRE_EQ(42, tau->foo);
-    tau->foo = 13;
+    REQUIRE_EQ(42, psi->foo);
+    psi->foo = 13;
 }
 
 TEST_F(MyTestF, c2) {
-    REQUIRE_EQ(42, tau->foo);
-    tau->foo = 13;
+    REQUIRE_EQ(42, psi->foo);
+    psi->foo = 13;
 }

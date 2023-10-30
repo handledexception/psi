@@ -1,8 +1,8 @@
-#include <tau/tau.h>
+#include <psi/psi.h>
 // Only MSVC seems to complain about this
 // Most likely because we're trying to cross-compile with `main.c` and `test.cpp`
 #ifdef _MSC_VER
-    TAU_ONLY_GLOBALS()
+    PSI_ONLY_GLOBALS()
 #endif // _MSC_VER
 
 TEST(cpp, REQUIRE_EQ) { 
@@ -380,8 +380,8 @@ struct Stack {
 
 TEST_F_SETUP(Stack) {
     WARN(TESTING WARNING);
-    tau->name = "Hello";
-    tau->age = 4;
+    psi->name = "Hello";
+    psi->age = 4;
 }
 
 TEST_F_TEARDOWN(Stack) {
@@ -389,8 +389,8 @@ TEST_F_TEARDOWN(Stack) {
 }
 
 TEST_F(Stack, TestStackDetails) {
-    tau->test();
-    CHECK_EQ(tau->age, 4);
-    REQUIRE_STREQ(tau->name, "Hello");
-    REQUIRE_EQ(tau->pop(), 123);
+    psi->test();
+    CHECK_EQ(psi->age, 4);
+    REQUIRE_STREQ(psi->name, "Hello");
+    REQUIRE_EQ(psi->pop(), 123);
 }

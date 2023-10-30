@@ -1,2 +1,2 @@
-#include <tau/tau.h>
-TAU_MAIN()
+#include <psi/psi.h>
+PSI_MAIN()
